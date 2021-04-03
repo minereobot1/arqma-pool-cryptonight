@@ -1,18 +1,18 @@
 {
-    "poolHost": "Your pool",
+    "poolHost": "your.pool.host",
 
-    "coin": "Iridium",
-    "symbol": "IRD",
-    "coinUnits": 100000000,
-    "coinDecimalPlaces": 4,
-    "coinDifficultyTarget": 175,
-    "blockchainExplorer": "http://explorer.ird.cash/",
-    "transactionExporer": "http://explorer.ird.cash/",
-
-    "daemonType": "bytecoin",
-    "cnAlgorithm": "cryptonight_pico",
+    "coin": "arqma",
+    "symbol": "ARQ",
+    "coinUnits": 1000000000,
+    "coinDecimalPlaces": 9,
+    "coinDifficultyTarget": 120,
+    "blockchainExplorer": "http://blockexplorer.arqma.com/block/{id}",
+    "transactionExplorer": "http://blockexplorer.arqma.com/tx/{id}",
+    "cnAlgorithm": "randomx",
     "cnVariant": 2,
-    "cnBlobType": 2,
+    "cnBlobType": 0,
+    "isRandomX": true,
+    "includeHeight": false,
 
     "logging": {
         "files": {
@@ -30,8 +30,8 @@
         "enabled": true,
         "mergedMining": false,
         "clusterForks": "auto",
-        "poolAddress": "Your address",
-        "intAddressPrefix": null,
+        "poolAddress": "** Your pool wallet address **",
+        "intAddressPrefix": 19,
         "blockRefreshInterval": 1000,
         "minerTimeout": 900,
         "sslCert": "./cert.pem",
@@ -68,11 +68,11 @@
                 "port": 9999,
                 "difficulty": 20000,
                 "desc": "SSL connection",
-                "ssl": false
+                "ssl": true
             }
         ],
         "varDiff": {
-            "minDiff": 600,
+            "minDiff": 100,
             "maxDiff": 100000000,
             "targetTime": 60,
             "retargetTime": 30,
@@ -109,23 +109,22 @@
 
     "payments": {
         "enabled": true,
-        "interval": 1800,
-        "maxAddresses": 50,
-        "mixin": 5,
+        "interval": 600,
+        "maxAddresses": 20,
+        "mixin": 10,
         "priority": 0,
-        "transferFee": 5000000,
+        "transferFee": 100000,
         "dynamicTransferFee": true,
         "minerPayFee" : true,
-        "minPayment": 100000000,
-        "maxPayment": null,
+        "minPayment": 25000000,
         "maxTransactionAmount": 0,
-        "denomination": 10000000
+        "denomination": 100000000
     },
 
     "blockUnlocker": {
         "enabled": true,
         "interval": 30,
-        "depth": 20,
+        "depth": 18,
         "poolFee": 0.8,
         "devDonation": 0.2,
         "networkFee": 0.0
@@ -139,7 +138,7 @@
         "port": 8117,
         "blocks": 30,
         "payments": 30,
-        "password": "password",
+        "password": "your_password",
         "ssl": false,
         "sslPort": 8119,
         "sslCert": "./cert.pem",
@@ -150,12 +149,12 @@
 
     "daemon": {
         "host": "127.0.0.1",
-        "port": 13007
+        "port": 19994
     },
 
     "wallet": {
         "host": "127.0.0.1",
-        "port": 13008
+        "port": 19995
     },
 
     "redis": {
@@ -235,9 +234,8 @@
         },
         "botCommands": {
             "stats": "/stats",
-            "report": "/report",
-            "notify": "/notify",
-            "blocks": "/blocks"
+            "enable": "/enable",
+            "disable": "/disable"
         }
     },
     
@@ -253,7 +251,7 @@
     },
 
     "prices": {
-        "source": "tradeogre",
+        "source": "altex",
         "currency": "USD"
     },
     
@@ -312,10 +310,7 @@
             "payments": {
                 "enabled": true
             }
-        },
-        "blocks": {
-            "enabled": true,
-            "days": 30
         }
     }
 }
+
